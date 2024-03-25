@@ -1,14 +1,43 @@
+<script>
+    function logout() {
+        $.post(<?php echo "'" .
+            $API["logout"]
+            . "'" ?>)
+            .done(function () {
+                window.location.href = <?php echo "'" . $page["login"] . "'" ?>;
+            })
+            .fail(function () {
+                alert("logout error")
+            });
+    }
+</script>
 <nav class='navbar navbar-expand-sm navbar-light bg-warning'>
     <img src=<?php echo $img["nav_logo"] ?> alt='Logo' style='width:40px;border-radius: 25px;'>
-    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent'
+        aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
         <span class='navbar-toggler-icon'></span>
     </button>
 
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul class='navbar-nav ml-auto topnav'>
             <li class='nav-item'>
+                <a class='nav-link' href='main_page.php'>Main Page</a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link' href='new_user.php'>Add New User</a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link' href='panel.php'>Manage Rooms</a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link' href='update_school.php'>Update School</a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link' href='' onclick="logout()">Logout</a>
+            </li>
             <li class='nav-item dropleft'>
-                <a class='nav-link dropdown-toggle' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                <a href='' class='nav-link dropdown-toggle' id='navbarDropdown' role='button' data-toggle='dropdown'
+                    aria-haspopup='true' aria-expanded='false'>
                     Contact
                 </a>
                 <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
@@ -27,16 +56,16 @@
 </nav>
 <script>
     //load contact data from ini
-    $.get( <?php echo "'".
+    $.get(<?php echo "'" .
         $API["school"]
-        ."'" ?> )
-    .done(function( data ) {
-        data = JSON.parse(data);
-        document.getElementById("nav_schl_name").innerHTML = data.name;
-        document.getElementById("nav_schl_street").innerHTML = data.street;
-        document.getElementById("nav_schl_city").innerHTML = data.city;
-        document.getElementById("nav_schl_email").innerHTML = data.email;
-        document.getElementById("nav_schl_phone").innerHTML = data.phone;
-        document.getElementById("nav_schl_nip").innerHTML = data.nip;
-    });
+        . "'" ?> )
+        .done(function (data) {
+            data = JSON.parse(data);
+            document.getElementById("nav_schl_name").innerHTML = data.name;
+            document.getElementById("nav_schl_street").innerHTML = data.street;
+            document.getElementById("nav_schl_city").innerHTML = data.city;
+            document.getElementById("nav_schl_email").innerHTML = data.email;
+            document.getElementById("nav_schl_phone").innerHTML = data.phone;
+            document.getElementById("nav_schl_nip").innerHTML = data.nip;
+        });
 </script>
