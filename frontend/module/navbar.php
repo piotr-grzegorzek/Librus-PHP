@@ -1,3 +1,8 @@
+<style>
+    body {
+        overflow-y: hidden;
+    }
+</style>
 <script>
     function logout() {
         $.post(<?php echo "'" .
@@ -11,7 +16,7 @@
             });
     }
 </script>
-<nav class='navbar navbar-expand-sm navbar-light bg-warning'>
+<nav class='navbar navbar-expand-lg navbar-light bg-primary bg-gradient'>
     <img src=<?php echo $img["nav_logo"] ?> alt='Logo' style='width:40px;border-radius: 25px;'>
     <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent'
         aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -20,21 +25,29 @@
 
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul class='navbar-nav ml-auto topnav'>
-            <li class='nav-item'>
-                <a class='nav-link' href='main_page.php'>Main Page</a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link' href='new_user.php'>Add New User</a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link' href='panel.php'>Manage Rooms</a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link' href='update_school.php'>Update School</a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link' href='' onclick="logout()">Logout</a>
-            </li>
+            <?php if (isset ($_SESSION['id'])): ?>
+                <li class='nav-item'>
+                    <a class='nav-link' href='main_page.php'>Main Page</a>
+                </li>
+            <?php endif; ?>
+
+            <?php if (isset ($_SESSION["permissions"]) && $_SESSION["permissions"] == "ADMIN"): ?>
+                <li class='nav-item'>
+                    <a class='nav-link' href='new_user.php'>Add New User</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='panel.php'>Manage Rooms</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='update_school.php'>Update School</a>
+                </li>
+            <?php endif; ?>
+
+            <?php if (isset ($_SESSION['id'])): ?>
+                <li class='nav-item'>
+                    <a class='nav-link' href='' onclick="logout()">Logout</a>
+                </li>
+            <?php endif; ?>
             <li class='nav-item dropleft'>
                 <a href='' class='nav-link dropdown-toggle' id='navbarDropdown' role='button' data-toggle='dropdown'
                     aria-haspopup='true' aria-expanded='false'>

@@ -1,85 +1,119 @@
 .user_card {
-    z-index: 0;
-    height: 550px;
-    width: 413px;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: #ffffff;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+  z-index: 0;
+  height: 550px;
+  width: 413px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #ffffff;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
 
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 10px;
+  }
 }
+
 .brand_logo_container {
-    position: absolute;
-    height: 210px;
-    width: 210px;
-    top: -75px;
-    border-radius: 50%;
-    background: #343a40;
-    text-align: center;
-    padding: 5px;
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  top: -75px;
+  border-radius: 50%;
+  background: #343a40;
+  text-align: center;
+  padding: 5px;
+  overflow: hidden;
+  /* Add this line to prevent the logo from going out of the container */
 }
+
 .brand_logo {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    border: 2px solid white;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+  /* Add this line to maintain the aspect ratio of the logo */
 }
+
+@media (max-width: 600px) {
+  .brand_logo_container {
+    height: 160px;
+    width: 160px;
+    top: -70px;
+  }
+}
+
 .form_container {
-    margin-top: 100px;
+  margin-top: 100px;
 }
-.input-group-text {     /* input icon */
-    border-radius: 15px;
-    background: rgb(95, 103, 124);
-    color: white;
-    border: 0;
-    border-radius: 0.25rem 0 0 0.25rem;
+
+.input-group-text {
+  /* input icon */
+  border-radius: 15px;
+  background: rgb(95, 103, 124);
+  color: white;
+  border: 0;
+  border-radius: 0.25rem 0 0 0.25rem;
 }
-.input_user, .input_pass {
-    box-shadow: none;
-    outline: 0px;
-    background-color: #d9d9d9;
+
+.input_user,
+.input_pass {
+  box-shadow: none;
+  outline: 0px;
+  background-color: #d9d9d9;
 }
+
 /* login button */
 .login_btn_container {
-    padding: 0 3rem;    /* zmniejszenie przycisku po lewej i prawej */
+  padding: 0 3rem;
+  /* zmniejszenie przycisku po lewej i prawej */
 }
+
 .login_btn {
-    width: 100%;
-    border-radius: 15px;
-    background: linear-gradient(to right, #757F9A, #D7DDE8);
-    border: none;   /* bez tego jest dziwna koncowka po prawej cursive cabria*/
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    text-align: center;
-    font-weight: 600;
-    transition: all 0.4s;
-    cursor: pointer;
-  }
-  .login_btn span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.4s;
-  }
-  .login_btn span:after {
-    content: '\2192';
-    position: absolute;
-    opacity: 0;
-    top: -1px;         /* dzieki temu kursor na srodku */
-    right: -30px;    /* kursor normalna pozycja */
-    transition: 0.4s;
-  }
-  .login_btn:hover span {
-    padding-right: 25px;    /*po najechaniu o ile kursor i napis w prawo*/
-  }
-  .login_btn:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
+  width: 100%;
+  border-radius: 15px;
+  background: linear-gradient(to right, #757F9A, #D7DDE8);
+  border: none;
+  /* bez tego jest dziwna koncowka po prawej cursive cabria*/
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 17px;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.login_btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+
+.login_btn span:after {
+  content: '\2192';
+  position: absolute;
+  opacity: 0;
+  top: -1px;
+  /* dzieki temu kursor na srodku */
+  right: -30px;
+  /* kursor normalna pozycja */
+  transition: 0.4s;
+}
+
+.login_btn:hover span {
+  padding-right: 25px;
+  /*po najechaniu o ile kursor i napis w prawo*/
+}
+
+.login_btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}

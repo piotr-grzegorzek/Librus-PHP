@@ -5,7 +5,7 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL,
     name VARCHAR(100) NOT NULL,
     surname VARCHAR(100) NOT NULL,
-    permissions INTEGER NOT NULL
+    permissions VARCHAR(11) NOT NULL
 );
 
 CREATE TABLE rooms (
