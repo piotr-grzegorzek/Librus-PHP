@@ -16,9 +16,10 @@ The project is divided into three main directories:
 
 1. Clone the repository.
 2. Set up your PHP environment.
-3. Configure your database settings in [`internal/database.ini`](internal/database.ini).
-4. Configure your school settings in [`internal/school.ini`](internal/school.ini).
-5. Run the application.
+3. Import MySQL schema from dev folder.
+4. Configure your database settings in [`internal/database.ini`](internal/database.ini).
+5. Configure your school settings in [`internal/school.ini`](internal/school.ini).
+6. Run the application.
 
 ## Usage
 
