@@ -31,11 +31,11 @@ The project is divided into three main directories:
 
 ### Frontend
 
-The frontend of the application is built with PHP and CSS. It includes a head module that sets up the metadata for the page and loads the necessary styles and scripts. The navbar module provides navigation throughout the application.
+The frontend of the application is built with PHP and HTML+CSS+JS. It includes a head module that sets up the metadata for the page and loads the necessary styles and scripts. The navbar module provides navigation throughout the application. RWD is implemented via bootstrap. Frontend communicates with API by AJAX request provided by JQuery.
 
 ### API
 
-The API is built with PHP and handles all requests from the frontend. It includes scripts for user login, logout, registration, and data retrieval about rooms, schools, and users.
+The API is built with PHP and handles all requests from the frontend. It includes scripts for user login, logout, registration, and data retrieval about rooms, schools, and users. Authorization is implemented via PHP sessions, obtained from login form with SHA hashing of passwords in DB. All persistent data is stored in MySQL database.
 
 ### Internal
 
