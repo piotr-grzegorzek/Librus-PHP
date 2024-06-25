@@ -14,19 +14,19 @@ The project is divided into three main directories:
 
 ## Setup
 
-1. Clone the repository.
-2. Set up your PHP environment.
-3. Import MySQL schema from dev folder.
-4. Configure your database settings in [`internal/database.ini`](internal/database.ini).
-5. Configure your school settings in [`internal/school.ini`](internal/school.ini).
-6. Run the application.
+1. Clone the repository into htdocs.
+2. Import MySQL schema from dev folder.
+3. Configure your database settings in [`internal/database.ini`](internal/database.ini) (default database from config is librus).
+4. Go to localhost/librus-php/
+5. Default user from schema is admin, with password 123
 
 ## Usage
 
 - Register a new user at [`new_user.php`](new_user.php).
+- Admin users can create new rooms visible on main page
+- Admin users can update school settings at [`update_school.php`](update_school.php).
 - Log in at [`login.php`](login.php).
 - After logging in, you will be redirected to [`main_page.php`](main_page.php).
-- Admin users can update school settings at [`update_school.php`](update_school.php).
 
 ## Notes
 
