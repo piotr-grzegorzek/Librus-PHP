@@ -29,10 +29,10 @@ $module["head"] = "./frontend/module/head.php";
 $module["nav"] = "./frontend/module/navbar.php";
 //API
 $API = array();
-$API["login"] = "/api/login.php";
-$API["logout"] = "/api/logout.php";
-$API["register"] = "/api/register.php";
-$API["school"] = "/api/school.php";
+$API["login"] = "./api/login.php";
+$API["logout"] = "./api/logout.php";
+$API["register"] = "./api/register.php";
+$API["school"] = "./api/school.php";
 function page_previous(){?>
     <script>window.history.go(-1)</script>
 <?php
