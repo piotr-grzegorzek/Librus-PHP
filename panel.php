@@ -14,6 +14,11 @@ if (isset ($_SESSION["id"])) {   //you are logged in
 
         <body>
             <?php require_once ($module["nav"]); ?>
+            <div style="position: relative; min-height: 50px;">
+                <div id="messageSuccess" class="alert alert-success" role="alert" style="display:none; position: absolute; top: 0; left: 0; right: 0; z-index: 1000;"></div>
+                <div id="messageError" class="alert alert-danger" role="alert" style="display:none; position: absolute; top: 0; left: 0; right: 0; z-index: 1000;"></div>
+            </div>
+
             <div class="container mt-5">
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
@@ -31,17 +36,6 @@ if (isset ($_SESSION["id"])) {   //you are logged in
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
-                function createRoom() {
-                    var roomName = $('#roomName').val();
-                    $.post('api/room.php', { type: 'INSERT', name: roomName, id: 0 })
-                        .done(function () {
-                            alert('Room created successfully');
-                            loadRooms();
-                        })
-                        .fail(function () {
-                            alert('Error creating room');
-                        });
-                }
 
                 function loadRooms() {
                     $.get('api/room.php', function (data) {
@@ -54,14 +48,30 @@ if (isset ($_SESSION["id"])) {   //you are logged in
                     });
                 }
 
-                function deleteRoom(id) {
-                    $.post('api/room.php', { type: 'DELETE', id: id })
+                function createRoom() {
+                    var roomName = $('#roomName').val();
+                    $.post('api/room.php', { type: 'INSERT', name: roomName, id: 0 })
                         .done(function () {
-                            alert('Room deleted successfully');
+                            $('#messageSuccess').text('Room created successfully').show().fadeOut(5000);
+                            $('#messageError').hide();
                             loadRooms();
                         })
                         .fail(function () {
-                            alert('Error deleting room');
+                            $('#messageError').text('Error creating room').show().fadeOut(5000);
+                            $('#messageSuccess').hide();
+                        });
+                }
+
+                function deleteRoom(id) {
+                    $.post('api/room.php', { type: 'DELETE', id: id })
+                        .done(function () {
+                            $('#messageSuccess').text('Room deleted successfully').show().fadeOut(5000);
+                            $('#messageError').hide();
+                            loadRooms();
+                        })
+                        .fail(function () {
+                            $('#messageError').text('Error deleting room').show().fadeOut(5000);
+                            $('#messageSuccess').hide();
                         });
                 }
 

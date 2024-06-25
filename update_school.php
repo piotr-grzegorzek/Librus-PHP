@@ -9,36 +9,41 @@ if (isset ($_SESSION["id"])) {   //you are logged in
             <?php require_once ($module["head"]) ?>
             <link rel="stylesheet" href="frontend/styles/glob.css">
             <script>
-                function submit() {
-                    var data = { title: "", desc: "", key: "", name: "", street: "", city: "", phone: "", nip: "", email: "" };
-                    data.title = document.getElementById("title").value;
-                    data.desc = document.getElementById("desc").value;
-                    data.key = document.getElementById("keywords").value;
-                    data.name = document.getElementById("name").value;
-                    data.street = document.getElementById("street").value;
-                    data.city = document.getElementById("city").value;
-                    data.phone = document.getElementById("phone").value;
-                    data.nip = document.getElementById("nip").value;
-                    data.email = document.getElementById("email").value;
-                    $.post(<?php echo "'" .
-                        $API["school"]
-                        . "'" ?>, data)
-                        .done(function () {
-                            $('#fail').hide();
-                        })
-                        .fail(function () {
-                            $('#fail').show();
-                        });
-                }
-            </script>
+            function submit() {
+                var data = { title: "", desc: "", key: "", name: "", street: "", city: "", phone: "", nip: "", email: "" };
+                data.title = document.getElementById("title").value;
+                data.desc = document.getElementById("desc").value;
+                data.key = document.getElementById("keywords").value;
+                data.name = document.getElementById("name").value;
+                data.street = document.getElementById("street").value;
+                data.city = document.getElementById("city").value;
+                data.phone = document.getElementById("phone").value;
+                data.nip = document.getElementById("nip").value;
+                data.email = document.getElementById("email").value;
+                $.post(<?php echo "'" . $API["school"] . "'" ?>, data)
+                    .done(function () {
+                        $('#fail').hide();
+                        $('#success').show().delay(5000).fadeOut();
+                    })
+                    .fail(function () {
+                        $('#success').hide();
+                        $('#fail').show();
+                    });
+            }
+        </script>
         </head>
 
         <body>
             <?php require_once ($module["nav"]); ?>
             <div class="form-container">
                 <div class="container-fluid p-3 bg-dark text-white">
-                    <div class="alert alert-danger collapse" alert-danger id="fail" alert-dismissible fade show">
-                        <strong>Fail!</strong> Something went wrong!
+                    <div style="position: relative; min-height: 50px;">
+                        <div class="alert alert-danger collapse" alert-danger id="fail" alert-dismissible fade show">
+                            <strong>Fail!</strong> Something went wrong!
+                        </div>
+                        <div class="alert alert-success collapse" id="success" alert-dismissible fade show">
+                            <strong>Success!</strong> Update was successful!
+                        </div>
                     </div>
                     <input type="text" id='name' class="form-control" placeholder="Nazwa szkoły">
                     <input type="text" id='street' class="form-control" placeholder="Ulica">
