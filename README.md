@@ -1,6 +1,6 @@
 # Librus PHP
 
-This project is a clone of the Librus app, implemented in PHP.
+This project is a clone of the Librus app, implemented in PHP, JS, HTML, CSS.
 
 ## Project Structure
 
@@ -8,7 +8,7 @@ The project is divided into three main directories:
 
 - `api/`: Contains PHP scripts for handling API requests. This includes scripts for user login, logout, registration, and data retrieval about rooms, schools, and users.
 
-- `frontend/`: Contains PHP scripts and CSS styles for the frontend of the application. It includes modules for the head and navbar, as well as styles for the login page. The `sitemap.php` file is also located here.
+- `frontend/`: Contains UI and CSS styles for the frontend of the application. It includes modules for the head and navbar, as well as styles for the login page. The `sitemap.php` file is also located here.
 
 - `internal/`: Contains common PHP scripts and configuration files. This includes the `common.php` script and configuration files for the database and school settings.
 
@@ -32,7 +32,7 @@ The project is divided into three main directories:
 
 ### Frontend
 
-The frontend of the application is built with PHP and HTML+CSS+JS. It includes a head module that sets up the metadata for the page and loads the necessary styles and scripts. The navbar module provides navigation throughout the application. RWD is implemented via bootstrap. Frontend communicates with API by AJAX request provided by JQuery.
+The frontend of the application is built with HTML+CSS+JS. It includes a head module that sets up the metadata for the page and loads the necessary styles and scripts. The navbar module provides navigation throughout the application. RWD is implemented via bootstrap. Frontend communicates with API by AJAX request provided by JQuery. It occasionally uses PHP (rendering API routes).
 
 ### API
 
